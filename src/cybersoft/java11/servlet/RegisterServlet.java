@@ -19,7 +19,6 @@ public class RegisterServlet extends HttpServlet {
 	 */
 
 	private static final long serialVersionUID = 1L;
-	AuthController authcontroller = new AuthController();
 
 	/*
 	 * url: /register

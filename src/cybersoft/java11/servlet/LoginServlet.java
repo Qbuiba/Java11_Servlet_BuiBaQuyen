@@ -17,7 +17,6 @@ public class LoginServlet extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	AuthController authcontroller = new AuthController();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -45,6 +44,7 @@ public class LoginServlet extends HttpServlet {
 			writer.append("<a href='http://localhost:8080/Java11_Servlet/about'>Go to About page </a>");
 		} else {
 			writer.append("Login failed");
+			writer.append("<br>");
 			writer.append("<br>");
 			writer.append("<a href='http://localhost:8080/Java11_Servlet/login'>Go to Login page </a>");
 		}

@@ -13,6 +13,10 @@
   
   <!-- Register a about servlet-->
   <servlet>
+  	<servlet-name>homeServlet</servlet-name>
+  	<servlet-class>cybersoft.java11.servlet.HomeServlet</servlet-class>
+  </servlet>
+  <servlet>
   	<servlet-name>aboutServlet</servlet-name>
   	<servlet-class>cybersoft.java11.servlet.AboutServlet</servlet-class>
   </servlet>
@@ -26,6 +30,11 @@
   </servlet>
   
   <!-- Register a about servlet-->
+  <servlet-mapping>
+  	<servlet-name>homeServlet</servlet-name>
+  	<url-pattern>/home</url-pattern>
+  	<url-pattern>/</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>aboutServlet</servlet-name>
   	<url-pattern>/about</url-pattern>
