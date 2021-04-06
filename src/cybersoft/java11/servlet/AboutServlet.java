@@ -21,7 +21,7 @@ public class AboutServlet extends HttpServlet {
 		PrintWriter writer = resp.getWriter();
 		writer.write("<h1 style='color:blue; text-align:center;'> This is About Page </h1>");
 		writer.write(
-				"<a href='http://localhost:8080/Java11_Servlet/home' style='color:red; text-align:center;'>Go to Home page</a>");
+				"<a href='http://localhost:8080/Java11_Servlet/' style='color:red; text-align:center;'>Go to Home page</a>");
 	}
 
 }

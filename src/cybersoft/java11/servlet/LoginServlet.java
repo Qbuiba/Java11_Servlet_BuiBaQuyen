@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cybersoft.java11.controller.AuthController;
+import cybersoft.java11.properties.PageForm;
 
 public class LoginServlet extends HttpServlet {
 
@@ -16,19 +17,18 @@ public class LoginServlet extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	AuthController authcontroller = new AuthController();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		resp.setContentType("text/html");
 		PrintWriter writer = resp.getWriter();
-		String formHtml = "<form method=\"POST\" action=\"\">\r\n" + "		<label for=\"userId\">Username:</label>\r\n"
-				+ "		<input type=\"text\" name=\"username\" id=\"userId\">\r\n" + "		<br>\r\n"
-				+ "		<label for=\"userPassword\">Password:</label>\r\n"
-				+ "		<input type=\"password\" name=\"password\" id=\"userPassword\">\r\n" + "		<br>\r\n"
-				+ "		<input type=\"submit\" value=\"Login\">\r\n" + "	</form>";
-		writer.append("Login page <br>");
-		writer.append(formHtml);
+		writer.append("<h1>Login Page</h1>");
+		writer.append("<br>");
+		writer.append("<br>");
+		writer.append(PageForm.loginForm);
+
 	}
 
 	@Override
@@ -39,9 +39,14 @@ public class LoginServlet extends HttpServlet {
 		String password = req.getParameter("password");
 
 		if (AuthController.login(username, password)) {
-			writer.write("Login sucessfull");
+			writer.append("Login sucessfull");
+			writer.append("<br>");
+			writer.append("<br>");
+			writer.append("<a href='http://localhost:8080/Java11_Servlet/about'>Go to About page </a>");
 		} else {
-			writer.write("Login failed");
+			writer.append("Login failed");
+			writer.append("<br>");
+			writer.append("<a href='http://localhost:8080/Java11_Servlet/login'>Go to Login page </a>");
 		}
 	}
 

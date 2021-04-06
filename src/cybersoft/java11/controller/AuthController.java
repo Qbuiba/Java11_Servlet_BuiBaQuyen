@@ -1,18 +1,19 @@
 package cybersoft.java11.controller;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import cybersoft.java11.model.User;
 
 public class AuthController {
-	private static List<User> userList;
+	public static List<User> userList = new LinkedList<User>();
 
 	public AuthController() {
-
-		userList.add(new User("admin", "admin"));
-		userList.add(new User("toan", "toan"));
+		userList.add(new User("admin", 20, "admin", "admin"));
+		userList.add(new User("toan", 30, "toan", "toan"));
 	}
 
+	// Authentication login checking
 	public static boolean login(String username, String password) {
 		boolean result = false;
 		for (User user : userList) {
@@ -23,11 +24,16 @@ public class AuthController {
 		return result;
 	}
 
-	public static boolean register(String username, String password) {
+	// Authentication existed user checking
+	public static boolean isExistedUser(String username) {
 		boolean result = false;
 
-		// REGISTER A USER
-
+		for (User user : userList) {
+			if (user.getUsername().equals(username)) {
+				result = true;
+				break;
+			}
+		}
 		return result;
 	}
 
